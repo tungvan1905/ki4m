@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Account Manager</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Account List</h1>
+		<a href="/new1">Create New Account</a> <br /> <br />
+		<table border="1" cellpadding="10">
+			<thead>
+				<tr>
+					<th>Tên Nguowif Sử Dụng</th>
+					<th>Email</th>
+					<th>PassWord</th>
+					<th>Full Name</th>
+					<th>Creat Date</th>
+					<th>Actions</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="account : ${listAccounts}">
+					<td th:text="${account.username}">Tên Mục Tiêu</td>
+					<td th:text="${account.email}"></td>
+					<td th:text="${account.password}"></td>
+					<td th:text="${account.fullName}"></td>
+					<td th:text="${account.create_date}">Ngày Hoàn Thành</td>
+
+					<td><a th:href="@{'/edit1/' + ${account.id}}">Edit</a>
+						&nbsp;&nbsp;&nbsp; <a th:href="@{'/delete1/' + ${account.id}}">Delete</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

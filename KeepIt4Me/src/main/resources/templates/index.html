@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Target Manager</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Target List</h1>
+		<a href="/new">Create New Target</a> <br /> <br />
+		<table border="1" cellpadding="10">
+			<thead>
+				<tr>
+					<th>Tên Mục Tiêu</th>
+					<th>Tỉ lê Hoàn Thành</th>
+					<th>Ngày Hoàn Thành</th>
+					<th>Hinh anh</th>
+					<th>Date</th>
+					<th>Acc</th>
+					
+					<th>Actions</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="target : ${listTargets}">
+					<td th:text="${target.name_target}">Tên Mục Tiêu</td>
+					<td th:text="${target.completion_rate}">Tỉ lê Hoàn Thành</td>
+					<td th:text="${target.image}">Hình Ảnh</td>
+					<td th:text="${target.target_date_completed}">Ngày Hoàn Thành</td>
+					<td th:text="${target.account}">Ngày Hoàn Thành</td>
+
+
+					<td><a th:href="@{'/edit/' + ${target.id}}">Edit</a>
+						&nbsp;&nbsp;&nbsp; <a th:href="@{'/delete/' + ${target.id}}">Delete</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
